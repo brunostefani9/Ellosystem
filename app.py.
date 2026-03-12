@@ -19,22 +19,11 @@ st.header("1. Cadastro de Insumos")
 st.write("Edite os preços e quantidades dos seus insumos:")
 st.session_state.ingredientes = st.data_editor(st.session_state.ingredientes)
 
-# Função para calcular custo
-def calcular_custo(drink_nome, ingredientes_usados):
-    custo_total = 0
-    for ing, qtd in ingredientes_usados.items():
-        # Busca o preço e rendimento na tabela
-        row = st.session_state.ingredientes[st.session_state.ingredientes['Ingrediente'] == ing]
-        if not row.empty:
-            custo_unit = row['Preço_Total'].values[0] / row['Rendimento_Total'].values[0]
-            custo_total += custo_unit * qtd
-    return custo_total
-
 # Aba de Drink
 st.header("2. Ficha Técnica do Drink")
 nome_drink = st.text_input("Nome do Drink (ex: Mojito)")
-# Exemplo de lógica simples para teste
-if nome_drink:
-    st.write(f"Custo estimado do {nome_drink}: R$ ... (em desenvolvimento)")
 
-st.success("Estrutura inicial criada com sucesso!")
+if nome_drink:
+    st.write(f"Custo estimado do {nome_drink}: ...")
+
+st.success("Sistema rodando!")
